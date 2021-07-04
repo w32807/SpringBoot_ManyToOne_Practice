@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <!--/* 마치 인클루드처럼, basic 레이아웃을 1개 만들고 내부의 화면은 따로 매개변수처럼 넣어줌 */-->
+    <th:block th:replace="~{/layout/basic :: setContent(~{this::content})}">
+        <th:block th:fragment="content">
+            <h1 class="mt-4">board Register Page</h1>
+
+            <form th:action="@{/board/register}" th:method="post">
+                <div class="form-group">
+                    <label>Title</label>
+                    <input type="text" class="form-control" name="title" placeholder="Enter title">
+                </div>
+                <div class="form-group">
+                    <label>Content</label>
+                    <textarea class="form-control" rows="5" name="content"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Writer Email</label>
+                    <input type="email" class="form-control" name="writerEmail" placeholder="Writer Email">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </th:block>
+    </th:block>
